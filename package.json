@@ -18,10 +18,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "cross-env CI=false react-scripts start",
+  "build": "cross-env CI=false react-scripts build",
+  "test": "cross-env CI=false react-scripts test",
+  "eject": "react-scripts eject",
     "compile-scss": "sass src/styles/Login.scss src/styles/Login.css"
   },
   "eslintConfig": {
@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "cross-env": "^7.0.3"
   }
 }
