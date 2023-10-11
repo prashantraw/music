@@ -4,7 +4,7 @@ import "../styles/Login.scss";
 function Login() {
   const handleClick = () => {
     const clientId = "e8321963509b49c894bee7afdc17352d";
-    const redirectUrl = "http://localhost:3000";
+    const redirectUrl = "https://akagamis-spotify.netlify.app";
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scope = [
       "user-read-email",
