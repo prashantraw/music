@@ -42,7 +42,7 @@ export default function Body({ headerBackground }) {
     };
 
     getInitialPlaylist();
-  }, [token, dispatch, selectedPlaylist]);
+  }, [token, dispatch, selectedPlaylist, selectedPlaylistId]);
 
   const playTrack = async (
     id,
