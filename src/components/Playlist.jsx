@@ -17,37 +17,30 @@ export default function Playlist() {
             Authorization: "Bearer " + token,
             "Content-Type": "application/json",
           },
-        }                            
+        }
       );
-
       const { items } = response.data;
-
-      const playlists = items.map((name, id) => {
+      const playlists = items.map(({ name, id }) => {
         return { name, id };
       });
-
-      dispatch({ type: actionTypes.GET_PLAYLIST, playlists });
+      dispatch({ type: actionTypes.SET_PLAYLIST, playlists });
     };
     getPlaylistData();
   }, [token, dispatch]);
 
+  const changeCurrentPlaylist = (selectedPlaylistId) => {
+    dispatch({ type: actionTypes.SET_PLAYLIST_ID, selectedPlaylistId });
+  };
+
   return (
     <div className="playlist_container">
-      <ul>
-        {playlists.map(({name, id}) => {
-          return <li key={id}>{name.name}</li>
-        })}
-        {playlists.map(({name, id}) => {
-          return <li key={id}>{name.name}</li>
-        })}
-        {playlists.map(({name, id}) => {
-          return <li key={id}>{name.name}</li>
-        })}
-        {playlists.map(({name, id}) => {
-          return <li key={id}>{name.name}</li>
-        })}
-        {playlists.map(({name, id}) => {
-          return <li key={id}>{name.name}</li>
+     <ul>
+        {playlists.map(({ name, id }) => {
+          return (
+            <li key={id} onClick={() => changeCurrentPlaylist(id)}>
+              {name}
+            </li>
+          );
         })}
       </ul>
     </div>
